@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+:root {
+  --primary-color: aquamarine;
+  --dark-color: #333333;
+  --light-color: #f4f4f4;
+  --lose-color: #dc3545;
+  --win-color: #28a745;
+  --modal-duration: 1s;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #333;
+  height: 100vh;
+  display: flex;
+}
+
+.container {
+  width: 900px;
+  margin: auto;
+  overflow: hidden;
+  padding: 2rem;
+  text-align: center;
+  border: coral 8px solid;
+  border-radius: 25px;
+}
+
+.restart-btn {
+  display: block;
+  background: coral;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  margin: 0 auto;
+  font-weight: 600;
+  border-radius: 30px;
+}
+
+.restart-btn:hover {
+  background: black;
+  color: #fff;
+}
+
+.modal,
+.header {
+  margin-top: 3rem;
+}
+
+.header {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.header h1 {
+  margin-bottom: 1rem;
+  color: coral;
+}
+
+.score-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 1.2rem;
+  height: 100px;
+  color: #fff;
+}
+
+.score {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  margin: 15px;
+}
+
+.player-score {
+  background: coral;
+}
+
+.computer-score {
+  background: var(--dark-color);
+}
+
+.choices-wrapper {
+  margin: 3rem auto;
+  background-color: coral;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.choices-wrapper > h2 {
+  color: white;
+  font-weight: 100;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  max-width: 600px;
+  margin: 1rem auto;
+}
+
+.choice {
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.choice:hover {
+  color: white;
+}
+
+.text-win {
+  color: black;
+}
+
+.text-lose {
+  color: var(--lose-color);
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.result-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
