@@ -1,80 +1,37 @@
 <template>
-  <div id="app" class="container">
-    <header class="header">
-      <h1>Rock Paper Scissor</h1>
+  <div id="app">
+    <div class="container">
 
-      <div class="score-wrapper">
-        <div class="score player-score">
-          <p>
-            Player:
-            <span>{{player}}</span>
-          </p>
-        </div>
-        <div class="score computer-score">
-          <p>
-            Computer:
-            <span>{{computer}}</span>
-          </p>
-        </div>
-      </div>
-    </header>
-    <div class="modal" id="modal">
-      <div class="results">
-        <div class="computer-choice">
-          <font-awesome-icon
-            :icon="'hand-'+ computerChoice"
-            :id="computerChoice"
-            :class="'fa-hand-' + computerChoice "
-            class="fas fa-10x"
-          />
-          <p>Computer Choose {{computerChoice}}</p>
-        </div>
-        <div class="result-text">
-          <h1 class="text-win">{{textResult}}</h1>
-        </div>
-        <div class="player-choice">
-          <font-awesome-icon
-            :icon="'hand-'+ playerChoice"
-            :id="playerChoice"
-            :class="'fa-hand-' + playerChoice "
-            class="fas fa-10x"
-          />
-          <p>You Choose {{playerChoice}}</p>
-        </div>
-      </div>
+    <score :player="player"/>
+    <results :playAgain="playAgain" :computerChoice="computerChoice" :playerChoice="playerChoice" :textResult="textResult" v-if="played"/>
+
+    <choices :arrayChoice="arrayChoice" :choice="choice" v-if="!played"/>
     </div>
-    <div class="choices-wrapper">
-      <h2>Make your Selection</h2>
-      <div class="choices">
-        <font-awesome-icon
-          v-for="(element,index) in arrayChoice"
-          :key="index"
-          @click="choice"
-          :icon="'hand-'+ element"
-          :id="element"
-          :class="'fa-hand-' + element "
-          class="choice fas fa-5x"
-        />
-      </div>
-    </div>
-    <button id="restart" class="restart-btn" @click="restartGame">Restart Game</button>
+
+  <rules />
+  
   </div>
 </template>
 
 <script>
-require("@/assets/css/app.css");
+require("@/assets/css/app.scss");
+import score from "./components/score.vue";
+import rules from "./components/rules.vue";
+import choices from "./components/choices.vue";
+import results from "./components/results.vue";
 
 export default {
   name: "app",
+  components: { score, rules, choices, results },
 
   data: function() {
     return {
       player: 0,
-      computer: 0,
       textResult: "",
       computerChoice: "",
       playerChoice: "",
-      arrayChoice: ["rock", "paper", "scissors"]
+      arrayChoice: ["rock", "paper", "scissors"],
+      played: false
     };
   },
 
@@ -117,25 +74,26 @@ export default {
         this.player++;
         this.textResult = "You win";
       } else if (winner === "computer") {
-        this.computer++;
+        this.player == 0 ? this.player = 0 : this.player--
         this.textResult = "You lose";
       } else {
         this.textResult = "It's a draw";
       }
     },
+    playAgain: function(){
+      this.played = false
+
+    },
     choice: function(e) {
+   
       this.playerChoice = e.currentTarget.id;
       this.computerChoice = this.getComputerChoice();
       const winner = this.getWinner(this.playerChoice, this.computerChoice);
       this.showWinner(winner, this.computerChoice);
+      
+      this.played = true;
     },
-    restartGame: function() {
-      this.player = 0;
-      this.computer = 0;
-    }
-  }
+
+  },
 };
 </script>
-
-
-

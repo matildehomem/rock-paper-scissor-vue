@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  line-height: 1.6;
+  background: radial-gradient(circle, $radial1 0%, $radial2 100%);
+
+  height: 100vh;
+  display: flex;
+}
+
+#app{
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+    width: 900px;
+    margin: 48px auto 0;
+  }

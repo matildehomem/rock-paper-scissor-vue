@@ -1,0 +1,35 @@
+.score-wrapper {
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2px solid $headerOutline;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.score {
+  width: 140px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  line-height: 1;
+  font-stretch: wider;
+
+  p {
+    text-transform: uppercase;
+    color: $scoreText;
+    letter-spacing: 2px;
+  }
+  span {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1;
+    color: $darkText;
+  }
+}

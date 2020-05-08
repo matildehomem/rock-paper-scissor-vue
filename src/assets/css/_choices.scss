@@ -1,0 +1,53 @@
+.choices-wrapper {
+  height: 500px;
+  width: 600px;
+  margin: 0 auto;
+  background-image: url(../images/bg-triangle.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.choices {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.choice {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &-img {
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    padding: 30px;
+    border-radius: 50%;
+  }
+
+  &-paper {
+    top: 50px;
+    left: 80px;
+    background: linear-gradient($paperGradient);
+  }
+  &-scissors {
+    top: 50px;
+    right: 80px;
+    background: linear-gradient($scissorsGradient);
+}
+
+&-rock {
+    bottom: 80px;
+    left: 220px;
+    background: linear-gradient($rockGradient);
+  }
+}
+
+.choice:hover {
+}
