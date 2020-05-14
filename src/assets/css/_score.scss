@@ -7,6 +7,10 @@
   border: 2px solid $headerOutline;
   border-radius: 20px;
   padding: 20px;
+
+  @media only screen and (max-width: 600px) {
+    width: 90%;
+  }
 }
 
 .score {
@@ -20,6 +24,7 @@
   border-radius: 15px;
   line-height: 1;
   font-stretch: wider;
+
 
   p {
     text-transform: uppercase;

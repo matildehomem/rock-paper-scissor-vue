@@ -9,7 +9,11 @@
         :id="element"
         :class="'choice-' + element"
       >
+      <div class="choice-in">
         <img :src="'/images/icon-' + element + '.svg'" class="choice-img" />
+
+      </div>
+
       </div>
     </div>
   </div>

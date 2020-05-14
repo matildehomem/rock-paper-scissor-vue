@@ -1,15 +1,20 @@
 <template>
   <div id="app">
     <div class="container">
+      <score :player="player" />
+      <results
+        :playAgain="playAgain"
+        :computerChoice="computerChoice"
+        :playerChoice="playerChoice"
+        :textResult="textResult"
+        :youWin="youWin"
+        :computerWin="computerWin"
+        v-if="played"
+      />
 
-    <score :player="player"/>
-    <results :playAgain="playAgain" :computerChoice="computerChoice" :playerChoice="playerChoice" :textResult="textResult" v-if="played"/>
-
-    <choices :arrayChoice="arrayChoice" :choice="choice" v-if="!played"/>
+      <choices :arrayChoice="arrayChoice" :choice="choice" v-if="!played" />
     </div>
-
-  <rules />
-  
+    <rules />
   </div>
 </template>
 
@@ -31,7 +36,9 @@ export default {
       computerChoice: "",
       playerChoice: "",
       arrayChoice: ["rock", "paper", "scissors"],
-      played: false
+      played: false,
+      youWin: false,
+      computerWin: false,
     };
   },
 
@@ -73,27 +80,30 @@ export default {
       if (winner === "player") {
         this.player++;
         this.textResult = "You win";
+        this.youWin = true;
+        this.computerWin = false;
       } else if (winner === "computer") {
-        this.player == 0 ? this.player = 0 : this.player--
+        this.player == 0 ? (this.player = 0) : this.player--;
         this.textResult = "You lose";
+        this.computerWin = true;
+        this.youWin = false;
       } else {
         this.textResult = "It's a draw";
+        this.computerWin = false;
+        this.youWin = false;
       }
     },
-    playAgain: function(){
-      this.played = false
-
+    playAgain: function() {
+      this.played = false;
     },
     choice: function(e) {
-   
       this.playerChoice = e.currentTarget.id;
       this.computerChoice = this.getComputerChoice();
       const winner = this.getWinner(this.playerChoice, this.computerChoice);
       this.showWinner(winner, this.computerChoice);
-      
+
       this.played = true;
     },
-
   },
 };
 </script>
