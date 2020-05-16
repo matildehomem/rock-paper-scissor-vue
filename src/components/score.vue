@@ -1,6 +1,6 @@
 <template>
   <div class="score-wrapper">
-      <img src="../assets/images/logo.svg" />
+      <img src="../assets/images/logo.svg" alt="logo" />
     <div class="score">
       <p>
         score

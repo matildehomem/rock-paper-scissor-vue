@@ -6,10 +6,10 @@
     <div v-if="modal" class="rules-modal">
       <div class="rules-wrapper">
         <button class="rules-modal-close" @click="closeRules">
-          <img src="../assets/images/icon-close.svg" />
+          <img src="../assets/images/icon-close.svg" alt="close button" />
         </button>
         <h3>Rules</h3>
-        <img src="../assets/images/image-rules.svg" />
+        <img src="../assets/images/image-rules.svg" alt="rules image"/>
       </div>
     </div>
   </fragment>

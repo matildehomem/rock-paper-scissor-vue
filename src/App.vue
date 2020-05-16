@@ -83,7 +83,7 @@ export default {
         this.youWin = true;
         this.computerWin = false;
       } else if (winner === "computer") {
-        this.player == 0 ? (this.player = 0) : this.player--;
+        this.player--;
         this.textResult = "You lose";
         this.computerWin = true;
         this.youWin = false;

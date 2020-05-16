@@ -7,6 +7,7 @@
           <img
             :src="'/images/icon-' + playerChoice + '.svg'"
             class="choice-img"
+            alt="player choice"
           />
         </div>
       </div>
@@ -37,6 +38,7 @@
             <img
               :src="'/images/icon-' + computerChoice + '.svg'"
               class="choice-img"
+              alt="computer choice"
             />
           </div>
         </div>

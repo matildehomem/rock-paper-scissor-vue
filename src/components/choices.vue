@@ -1,7 +1,7 @@
 <template>
   <div class="choices-wrapper">
     <div class="choices">
-      <div
+      <a
         class="choice"
         v-for="(element, index) in arrayChoice"
         :key="index"
@@ -10,11 +10,11 @@
         :class="'choice-' + element"
       >
       <div class="choice-in">
-        <img :src="'/images/icon-' + element + '.svg'" class="choice-img" />
+        <img :src="'/images/icon-' + element + '.svg'" class="choice-img" alt="choice element"/>
 
       </div>
 
-      </div>
+      </a>
     </div>
   </div>
 </template>
